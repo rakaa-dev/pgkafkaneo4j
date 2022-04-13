@@ -1,0 +1,23 @@
+{
+  "name": "neo4jkafkadev",
+  "config": {
+        "neo4j.database": "devkafka",
+        "topics": "id-ifg-poc-kafka4.public.peserta",
+        "connector.class": "streams.kafka.connect.sink.Neo4jSinkConnector",
+        "kafka.key.deserializer":"org.apache.kafka.common.serialization.ByteArrayDeserializer",
+        "kafka.value.deserializer":"org.apache.kafka.common.serialization.ByteArrayDeserializer",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable":"false",
+        "errors.retry.timeout": "-1",
+        "errors.retry.delay.max.ms": "1000",
+        "errors.tolerance": "all",
+        "errors.log.enable": true,
+        "errors.log.include.messages": true,
+        "neo4j.server.uri": "neo4j://34.126.112.247:7687",
+        "neo4j.authentication.basic.username": "neo4j",
+        "neo4j.authentication.basic.password": "neo4jifggcp",
+        "neo4j.encryption.enabled": false,
+        "neo4j.topic.cypher.id-ifg-poc-kafka4.public.peserta": "MERGE (peserta:Peserta {nopeserta: "event.after.nopeserta"}) ON CREATE SET peserta.namapeserta = event.after.namapeserta, peserta.nopeg = event.after.nopeg, peserta.tgllahir = event.after.tgllahir, peserta.alamat1 = event.after.alamat1, peserta.alamat2 = event.after.alamat2, peserta.kota = event.after.kota, peserta.kdpropinsi = event.after.kdpropinsi, peserta.kodepos = event.after.kodepos, peserta.telp = event.after.telp, peserta.fax = event.after.fax, peserta.email = event.after.email, peserta.maritalstatus = event.after.maritalstatus, peserta.status = event.after.status, peserta.tglstatus = event.after.tglstatus, peserta.kdjabatan = event.after.kdjabatan, peserta.kddivisi = event.after.kddivisi, peserta.tempatlahir = event.after.tempatlahir, peserta.kdpekerjaan = event.after.kdpekerjaan, peserta.kdgolongan = event.after.kdgolongan, peserta.nocustomer = event.after.nocustomer, peserta.jk = event.after.jk, peserta.kdstatusmedical = event.after.kdstatusmedical, peserta.tglrekam = event.after.tglrekam, peserta.userrekam = event.after.userrekam, peserta.tglup = event.after.tglup, peserta.userup = event.after.userup, peserta.nosertifikat = event.after.nosertifikat, peserta.escobar = event.after.escobar, peserta.nohp = event.after.nohp, peserta.noid = event.after.noid, peserta.jnsid = event.after.jnsid, peserta.newescobar = event.after.newescobar, peserta.kdunit = event.after.kdunit, peserta.stakoreksi = event.after.stakoreksi, peserta.autodebet = event.after.autodebet, peserta.nopengajuan = event.after.nopengajuan"
+        }
+}
